@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 
+
 class Filter extends Component {
 
-  //Returns a list of show types (How can we use this for a filter?)
-  // listOfShowTypes = () => {
-  //   return this.props.shows.map((s)=> {
-  //     return s.type
-  //   }).unique()
-  // }
+
+  listOfShowTypes = () => {
+    return this.props.shows.map((s)=> {
+      return s.type
+    }).unique()
+  }
+
+  typeList = () => {
+    return this.listOfShowTypes().map(type => {
+      return <li onClick={() => this.props.handleSort(type)}><button className="btn">{type}</button></li>
+    })
+  }
 
   render = () => {
     return (
       <div className="filter">
-        Your code for your Filter
+        <button onClick={this.props.showAll} className="btn">Show ALL</button>
+        <ul>
+          {this.typeList()}
+        </ul>
       </div>
     );
   }

@@ -19,3 +19,7 @@
 .filter {
   grid-column-start: 2;
 }
+
+.btn {
+  margin: 10px
+}
